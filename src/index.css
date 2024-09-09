@@ -44,7 +44,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 50%;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -117,4 +117,40 @@ tbody tr:nth-child(odd) {
 .table {
   width: 80vw;
   table-layout: fixed;
+}
+
+.candidateCard {
+  min-width: 16em;
+  background-color: #000;
+  border-radius: 25px;
+}
+
+.candidateCard img {
+  border-radius: 25px 25px 0px 0px;
+  min-height: 15em;
+  min-width: 100%;
+  background-color: white;
+}
+
+.candidate {
+  padding: 20px;
+}
+
+.btns {
+  padding-top: 25px;
+  min-width: 16em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.minus-btn {
+  background-color: red;
+  padding: 0.6em 1em;
+  font-size: 2em;
+}
+
+.add-btn {
+  background-color: green;
+  padding: 0.6em 1em;
+  font-size: 2em;
 }
