@@ -8,23 +8,23 @@ const SavedCandidates = () => {
 
 
   const createTable = () => {
-    if (candidateList === null) {
+    if (candidateList.length === 0) {
       return (
-        <h1>You Have No Saved Candidates</h1>
+        <h1 className="center-align">You Have No Saved Candidates</h1>
       )
     } else {
       const populatedTable = candidateList.map((currentCandidate, index) => 
-        <tr key={index}>
+        <tr key={index} className="savedCandidatesContent">
           <td><img src={currentCandidate.avatar_url}></img></td>
-          <td>{`${currentCandidate.name} (${currentCandidate.login}`}</td>
-          <td>{currentCandidate.location}</td>
+          <td>{`${currentCandidate.name} (${currentCandidate.login})`}</td>
+          <td>{currentCandidate.location || "Null"}</td>
           <td>
-            <a>{currentCandidate.email}</a>
+            <a>{currentCandidate.email || "Null"}</a>
           </td>
-          <td>{currentCandidate.company}</td>
-          <td>{currentCandidate.bio}</td>
+          <td>{currentCandidate.company || "Null"}</td>
+          <td>{currentCandidate.bio || "Null"}</td>
           <td className="btn">
-            <button className="minus-btn">-</button>
+            <button className="minus-btn" onClick={() => removeCandidate( currentCandidate.name)}>-</button>
           </td>
         </tr>
         )
@@ -32,27 +32,22 @@ const SavedCandidates = () => {
     }
   } 
 
-  // const removeCandidate = (
-  //   e: React.MouseEvent<SVGSVGElement, MouseEvent>,
-  //   currentlyOnCandidateList: boolean | null | undefined,
-  //   name: string | null
-  // ) => {
-  //   e.preventDefault();
-  //   if (currentlyOnCandidateList) {
-  //     console.log(name);
-  //     let parsedCandidates: Candidate[] = [];
+  const removeCandidate = (
+    name: string | null
+  ) => {
+    let parsedCandidates: Candidate[] = [];
 
-
-  //     const storedCandidates = localStorage.getItem('myCandidates');
-  //     if (typeof storedCandidates === 'string') {
-  //       parsedCandidates = JSON.parse(storedCandidates);
-  //     }
-  //     parsedCandidates = parsedCandidates.filter(
-  //       (candidate) => candidate.name !== name
-  //     );
-  //     localStorage.setItem('myCandidates', JSON.stringify(parsedCandidates));
-  //   }
-  // }
+    const storedCandidates = localStorage.getItem('myCandidate');
+    if (typeof storedCandidates === 'string') {
+      parsedCandidates = JSON.parse(storedCandidates);
+    }
+    parsedCandidates = parsedCandidates.filter(
+        (candidate) => candidate.name !== name
+    );
+    localStorage.setItem('myCandidate', JSON.stringify(parsedCandidates));
+    setCandidateList(parsedCandidates);
+    createTable();
+  }
 
   useEffect(() => {
     const parsedCandidates = JSON.parse(
