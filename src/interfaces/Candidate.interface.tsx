@@ -1,4 +1,4 @@
-// TODO: Create an interface for the Candidate objects returned by the API
+// Candidate interface with all required data
 interface Candidate {
     avatar_url: string;
     name: string;

@@ -4,7 +4,6 @@ import { searchGithub, searchGithubUser } from '../api/API';
 import Candidate from "../interfaces/Candidate.interface";
 import CandidateCard from '../components/CandidateCard';
 
-
 const CandidateSearch = () => {
 
   const [currentCandidate, setCurrentCandidate] = useState<Candidate>({
@@ -17,6 +16,7 @@ const CandidateSearch = () => {
     bio: ""
   });
 
+  // Function to add the "clicked" users data to local storage
   const addToCandidateStorage = () => {
     let parsedCandidates = [];
     const storedCandidates = localStorage.getItem("myCandidate");
@@ -27,6 +27,7 @@ const CandidateSearch = () => {
     localStorage.setItem("myCandidate", JSON.stringify(parsedCandidates));
   }
 
+  // Renders a new candidate
   const showNextCandidate = async () => {
     const data = await searchGithub();
     const userData = await searchGithubUser(data[Math.floor(Math.random() * 29)].login);
@@ -34,6 +35,7 @@ const CandidateSearch = () => {
     setCurrentCandidate(userData);
   }
 
+  // Startup function upon first loading the page
   useEffect(() => {
     showNextCandidate();
   }, []);

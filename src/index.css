@@ -43,6 +43,8 @@ h1 {
   line-height: 1.1;
 }
 
+/* Button Styles */
+
 button {
   border-radius: 50%;
   border: 1px solid transparent;
@@ -55,12 +57,38 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ffffff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+button:active {
+  opacity: 80%;
 }
+
+.btns {
+  padding-top: 25px;
+  min-width: 16em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.minus-btn {
+  background-color: red;
+  padding: 0.6em 1em;
+  font-size: 2em;
+}
+
+.add-btn {
+  background-color: green;
+  padding: 0.6em 1em;
+  font-size: 2em;
+}
+
+.center-btn {
+  background-color: none;
+  justify-content: center;
+}
+
+/* Media Styles */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -98,6 +126,8 @@ tbody tr:nth-child(odd) {
   background-color: #333333;
 }
 
+/* Nav-bar Styles */ 
+
 .nav {
   display: flex;
   justify-content: flex-start;
@@ -118,10 +148,7 @@ tbody tr:nth-child(odd) {
   font-weight: 700;
 }
 
-.table {
-  width: 80vw;
-  table-layout: fixed;
-}
+/* Home Candidate Card Styles */
 
 .candidateCard {
   width: 20em;
@@ -140,29 +167,7 @@ tbody tr:nth-child(odd) {
   padding: 20px;
 }
 
-.btns {
-  padding-top: 25px;
-  min-width: 16em;
-  display: flex;
-  justify-content: space-between;
-}
-
-.minus-btn {
-  background-color: red;
-  padding: 0.6em 1em;
-  font-size: 2em;
-}
-
-.add-btn {
-  background-color: green;
-  padding: 0.6em 1em;
-  font-size: 2em;
-}
-
-.center-btn {
-  background-color: none;
-  justify-content: center;
-}
+/* Potential Candidate Table Styles */
 
 .center-align {
   display: flex;
@@ -177,4 +182,9 @@ tbody tr:nth-child(odd) {
 .savedCandidatesContent td Img {
   width: 100%;
   height: 10em;
+}
+
+.table {
+  width: 80vw;
+  table-layout: fixed;
 }

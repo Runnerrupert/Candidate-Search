@@ -1,6 +1,6 @@
 import Candidate from '../interfaces/Candidate.interface';
 
-
+// Type given to specify what all candidateCards should have
 type CandidateCardProps = {
     currentCandidate: Candidate;
     addToCandidateStorage: (() => void) | null;
@@ -8,7 +8,7 @@ type CandidateCardProps = {
   }
  
 
-
+// HTML which retrieves the props from the "CandidateSearch" page, to create the card with all the data
 const CandidateCard = ({
     currentCandidate,
     addToCandidateStorage,
@@ -34,6 +34,5 @@ const CandidateCard = ({
       </>
     );
   };
-
 
   export default CandidateCard;
