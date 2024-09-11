@@ -90,6 +90,10 @@ tr {
   color: white;
 }
 
+td {
+  word-wrap: break-word;
+}
+
 tbody tr:nth-child(odd) {
   background-color: #333333;
 }
@@ -153,4 +157,9 @@ tbody tr:nth-child(odd) {
   background-color: green;
   padding: 0.6em 1em;
   font-size: 2em;
+}
+
+.center-btn {
+  background-color: none;
+  justify-content: center;
 }

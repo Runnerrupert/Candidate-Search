@@ -19,7 +19,7 @@ const CandidateSearch = () => {
 
   const addToCandidateStorage = () => {
     let parsedCandidates = [];
-    const storedCandidates = localStorage.getItem("myCandidates");
+    const storedCandidates = localStorage.getItem("myCandidate");
     if (typeof storedCandidates === "string") {
       parsedCandidates = JSON.parse(storedCandidates);
     }
