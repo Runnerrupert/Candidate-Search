@@ -32,27 +32,27 @@ const SavedCandidates = () => {
     }
   } 
 
-  const removeCandidate = (
-    e: React.MouseEvent<SVGSVGElement, MouseEvent>,
-    currentlyOnCandidateList: boolean | null | undefined,
-    name: string | null
-  ) => {
-    e.preventDefault();
-    if (currentlyOnCandidateList) {
-      console.log(name);
-      let parsedCandidates: Candidate[] = [];
+  // const removeCandidate = (
+  //   e: React.MouseEvent<SVGSVGElement, MouseEvent>,
+  //   currentlyOnCandidateList: boolean | null | undefined,
+  //   name: string | null
+  // ) => {
+  //   e.preventDefault();
+  //   if (currentlyOnCandidateList) {
+  //     console.log(name);
+  //     let parsedCandidates: Candidate[] = [];
 
 
-      const storedCandidates = localStorage.getItem('myCandidates');
-      if (typeof storedCandidates === 'string') {
-        parsedCandidates = JSON.parse(storedCandidates);
-      }
-      parsedCandidates = parsedCandidates.filter(
-        (candidate) => candidate.name !== name
-      );
-      localStorage.setItem('myCandidates', JSON.stringify(parsedCandidates));
-    }
-  }
+  //     const storedCandidates = localStorage.getItem('myCandidates');
+  //     if (typeof storedCandidates === 'string') {
+  //       parsedCandidates = JSON.parse(storedCandidates);
+  //     }
+  //     parsedCandidates = parsedCandidates.filter(
+  //       (candidate) => candidate.name !== name
+  //     );
+  //     localStorage.setItem('myCandidates', JSON.stringify(parsedCandidates));
+  //   }
+  // }
 
   useEffect(() => {
     const parsedCandidates = JSON.parse(
